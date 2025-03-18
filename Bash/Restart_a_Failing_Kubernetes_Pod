@@ -1,0 +1,5 @@
+#Automatically restart pods stuck in CrashLoopBackOff.
+
+#!/bin/bash
+echo "Restarting failed pods..."
+kubectl get pods --all-namespaces | grep CrashLoopBackOff | awk '{print $2}' | xargs kubectl delete pod
