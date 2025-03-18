@@ -1,0 +1,8 @@
+#Get notified when CPU usage crosses a threshold.
+
+#!/bin/bash
+THRESHOLD=80
+USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
+if (( $(echo "$USAGE > $THRESHOLD" | bc -l) )); then
+  echo "High CPU Usage: $USAGE%" | mail -s "CPU Alert" you@example.com
+fi
