@@ -1,0 +1,5 @@
+#Prevent disk space issues by deleting old logs automatically.
+
+#!/bin/bash
+echo "Deleting log files older than 7 days..."
+find /var/log -type f -name "*.log" -mtime +7 -exec rm -f {} \;
