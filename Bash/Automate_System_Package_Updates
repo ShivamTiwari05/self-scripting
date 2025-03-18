@@ -1,0 +1,5 @@
+#Keep your Linux system updated without manual intervention.
+
+#!/bin/bash
+echo "Updating system packages..."
+sudo apt update && sudo apt upgrade -y
